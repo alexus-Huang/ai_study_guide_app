@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content%}
+<p>{{output}}</p>
+<div id="user-container">
+<form action="#" method="post">
+    <textarea name="user_input" rows = "3" cols = "50" placeholder="Ask anything" style="resize: none;"></textarea>
+    <button type="submit">Generate</button>
+</form>
+</div>
+
+{% endblock %}
