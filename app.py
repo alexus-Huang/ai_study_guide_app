@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+print("API KEY:", os.getenv("GEMINI_API_KEY"))
 app = Flask(__name__)
 
 
@@ -14,8 +15,10 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 @app.route("/",methods = ["POST","GET"])
 def main():
     text_output = ""
+    user_input_display = ""
     if request.method == "POST":
         user_input = request.form["user_input"]
+        user_input_display = user_input
         prompt = (
             "You are a helpful AI assistant. "
             "If the user provides a statement, summarize it. "
@@ -27,6 +30,6 @@ def main():
         response = chat_session.send_message(user_input)
         text_output = response.text
         
-    return render_template("index.html",output = text_output)
+    return render_template("index.html",output = text_output,user_input = user_input_display)
 if __name__ == "__main__":
     app.run(debug=True) 

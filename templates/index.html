@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content%}
-<p>{{output}}</p>
+<p id="display_user_input">{{user_input}}</p>
+<p id="AI_output">{{output}}</p>
 <div id="user-container">
-<form action="#" method="post">
-    <textarea name="user_input" rows = "3" cols = "50" placeholder="Ask anything" style="resize: none;"></textarea>
-    <button type="submit">Generate</button>
-</form>
+    <form action="#" method="post">
+        <textarea name="user_input" rows = "3" cols = "50" placeholder="Ask anything" style="resize: none;"></textarea>
+        <button type="submit">Generate</button>
+    </form>
 </div>
 
 {% endblock %}
